@@ -5,7 +5,7 @@ public:
 	powerup();
 	~powerup();
 	void Generate(TextureMenager &TexMen);
-	void PowerTimer(TextureMenager & TexMen);
+	void PowerTimer(TextureMenager & TexMen, float fps);
 	void DrawPowerUP(sf::RenderWindow &window);
 	bool DestroyPowerUP;
 	bool powertaken;

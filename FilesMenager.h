@@ -13,22 +13,27 @@ public:
 			plik << hp << std::endl;
 			plik << lvl << std::endl;
 		}
+		plik.close();
 	}
 	void Load() {
 		std::fstream plik(fileName, std::ios::in);
 		if (plik.good() == false) {
-			std::cout << "Cannot save file!" << std::endl;
-			NewFile();
+			if (NewFile() == false) {
+				std::cout << "Cannot create file" << std::endl;
+			}
 		}
 		else {
 			plik >> hp >> lvl;
 		}
+		plik.close();
 	}
-	void NewFile() {
+	bool NewFile() {
 		std::fstream plik(fileName);
 		if (plik.good() == false) {
 			std::cout << "Cannot create file" << std::endl;
+			return false;
 		}
+		return true;
 	}
 	int HP() {
 		return hp;

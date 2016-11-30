@@ -2,7 +2,7 @@
 #include "TextureMenager.h"
 class Bullet {
 public:
-	Bullet(sf::Texture & texture, bool isPL, sf::Vector2f pos, int BDMG = 1, float LT = 1.7f, float SPEED = 60.f);
+	Bullet(sf::Texture & texture, bool isPL, sf::Vector2f pos,float FPS ,int BDMG = 1, float LT = 1.7f, float SPEED = 60.f);
 	void MoveBullet();
 	void DrawBullet(sf::RenderWindow &win) {
 		win.draw(S_Bullet);
@@ -21,6 +21,7 @@ private:
 	sf::Sprite S_Bullet;
 	int DMG;
 	bool isPlayer;
+	float fps;
 	float speed;
 	float livetime;
 };

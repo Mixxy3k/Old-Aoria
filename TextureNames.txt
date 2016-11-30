@@ -1,0 +1,19 @@
+
+Nazwa: Player
+Opis: Textura gracza(Gra)
+
+Nazwa: Bullet
+Opis: Textura pocisku(Gra)
+
+Nazwa: Moob1
+Opis: Textura mooba typu 1(Gra
+
+Nazwa: Moob2
+Opis: Textura mooba typu 2(Gra)
+
+Nazwa: Tarcza
+Opis: Tarcza ... S(Gra)
+Naza Speed
+
+	TexMen.LoadTexture("TloGry", "data/textures/GameBG.png");
+	TexMen.LoadTexture("Heal",   "data/textures/Heal.png");

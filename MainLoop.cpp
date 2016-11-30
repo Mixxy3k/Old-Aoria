@@ -47,8 +47,7 @@ void MainLoop::InitMenu(sf::RenderWindow& window)
 			InitTutorial(window);
 			break;
 		default:
-			window.setTitle(TitleName + "- ERROR ");
-			OutErr("Menu - choose [bad intiger]",window);
+
 			break;
 		}
 	}
@@ -66,8 +65,3 @@ void MainLoop::InitTutorial(sf::RenderWindow& window)
 	ControlTutorial ct(TexMen, font_good_times, window);
 }
 
-void MainLoop::OutErr(const std::string & Err, sf::RenderWindow& window)
-{
-	std::cerr << "ERROR: " + Err << std::endl;
-	Sleep(4000);
-}

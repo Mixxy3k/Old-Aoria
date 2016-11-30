@@ -3,7 +3,7 @@
 #include <iostream>
 class Player {
 public:
-	Player(TextureMenager &TexMen, sf::RenderWindow &window,float SpeedC = 360.f);
+	Player(TextureMenager &TexMen, sf::RenderWindow &window,float FPS, float SpeedC = 360.f);
 	int hp = 150;
 	int Money = 0;
 	void Logic(sf::Event &event);
@@ -39,4 +39,5 @@ private:
 	void Move(sf::Vector2f &ruch);
 	sf::Sprite S_Player;
 	float Speed = 360.f;
+	float fps;
 };

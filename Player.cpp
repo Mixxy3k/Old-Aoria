@@ -1,11 +1,12 @@
 #include "Player.h"
 
-Player::Player(TextureMenager & TexMen, sf::RenderWindow &window,float SpeedC)
+Player::Player(TextureMenager & TexMen, sf::RenderWindow &window,float FPS,float SpeedC)
 {
 	S_Player.setTexture(TexMen.getRef("Player"));
 	S_Player.setOrigin(32, 32);
 	S_Player.setPosition(512, 256);
 	Speed = SpeedC;
+	fps = FPS;
 	shoot = false;
 	shootclock.restart();
 	gun = KINETIC;
@@ -18,7 +19,7 @@ void Player::Logic(sf::Event & event)
 
 void Player::Move(sf::Vector2f &ruch)
 {
-	S_Player.move(ruch * 1.f/60.f * Speed);
+	S_Player.move(ruch * 1.f/fps * Speed);
 }
 
 void Player::WhatPress()

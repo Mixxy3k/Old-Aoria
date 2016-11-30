@@ -12,7 +12,6 @@ public:
 	void InitMenu(sf::RenderWindow& window);
 	void InitGame(sf::RenderWindow& window);
 	void InitTutorial(sf::RenderWindow& window);
-	void OutErr(const std::string& Err, sf::RenderWindow& window);
 
 
 private:

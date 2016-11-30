@@ -56,9 +56,9 @@ void powerup::Generate(TextureMenager &TexMen)
 	clock.restart();
 }
 
-void powerup::PowerTimer(TextureMenager & TexMen)
+void powerup::PowerTimer(TextureMenager & TexMen, float fps)
 {
-	Y += 150.f * 1.f / 60.f;
+	Y += 150.f * 1.f / fps;
 	PowerUP.setPosition(X, Y);
 	Timer = clock.getElapsedTime();
 	speedtime = SpeedClock.getElapsedTime();

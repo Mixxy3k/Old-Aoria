@@ -1,11 +1,12 @@
 #include "SI.h"
-Moob::Moob(int sX, int sY, sf::Texture &T_Moob, int idm, int MHP, float MoobSpeed)
+Moob::Moob(int sX, int sY, sf::Texture &T_Moob, int idm, float FPS, int MHP, float MoobSpeed)
 {
 	S_Moob.setTexture(T_Moob);
 	S_Moob.setOrigin(S_Moob.getGlobalBounds().width / 2, S_Moob.getGlobalBounds().height / 2);
 	S_Moob.setPosition(sX, sY);
 	S_Moob.setRotation(180);
 	action = true;
+	fps = FPS;
 	next_shoot = 1 + (idm / 10);
 	mHP = MHP;
 	ID = idm;

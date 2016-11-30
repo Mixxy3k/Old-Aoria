@@ -30,14 +30,14 @@ private:
 	std::vector<Shield*> Shields;
 	std::vector<Money*>  money;
 
-	void EventMenager(sf::RenderWindow &window, sf::Event &ev);
+	void EventMenager(sf::RenderWindow &window, sf::Event &ev, Player &pl);
 	void PlBulletMenager(Player &pl, TextureMenager & TexMen);
 	void MoobsMenager(TextureMenager & TexMen);
 	void MoobBulletMenager();
 	void DestroyMenager(Player &pl, sf::RenderWindow &window, TextureMenager & TexMen);
 	void LvlMenager(TextureMenager & TexMen, Player &pl);
 	void PooverUpMenager(Player &pl, TextureMenager & TexMen);
-	void MoneyMenager();
+	void MoneyMenager(Player &pl);
 	float getFPS(const sf::Time& time) {
 		return (1000000.0f / time.asMicroseconds());
 	}
@@ -56,8 +56,10 @@ private:
 	void Exit(){
 		return;
 	}
+	float FPS = 90.f;
 
 	bool scd = false; // start clock die
 	bool fr = true; // first lvl after run game
+	bool close = false;
 	sf::Clock DieClock;
 };

@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "FilesMenager.h"
 Menu::Menu(sf::RenderWindow &window, TextureMenager & TexMen, sf::Font &font)
 {
 	GTfont = font;
@@ -14,25 +15,25 @@ void Menu::MainMenu(sf::RenderWindow & window, TextureMenager &TexMen)
 	BGM.setPosition(0, -300);
 	sf::Text MainText("Aoria", GTfont, 75);
 	sf::Text FpsInf("", GTfont, 10);
-	sf::Text creator("Create by Mixxy3k DO NOT DISTRIBUTE V 1.6 ALPHA", GTfont, 8);
+	sf::Text creator("Create by Mixxy3k DO NOT DISTRIBUTE V 1.7 ALPHA", GTfont, 8);
 	creator.setColor(sf::Color::Black);
 	creator.setPosition(0, 500);
 	MainText.setPosition(sf::Vector2f(1024 / 2 - MainText.getGlobalBounds().width / 2, 20));
 	sf::Clock clock;
 	sf::Clock FPSClock;
 	for (;;) {
-		const int ile = 3;
+		const int ile = 4;
 
 		sf::Text tekst[ile];
 
-		std::string str[] = { "Play","Control","Exit" };
+		std::string str[] = { "Play","Control","Reset","Exit" };
 		for (int i = 0; i < ile; i++)
 		{
 			tekst[i].setFont(GTfont);
 			tekst[i].setCharacterSize(65);
 
 			tekst[i].setString(str[i]);
-			tekst[i].setPosition(1024 / 2 - tekst[i].getGlobalBounds().width / 2, 170 + i * 120);
+			tekst[i].setPosition(1024 / 2 - tekst[i].getGlobalBounds().width / 2, 140 + i * 95);
 		}
 
 		while (1)
@@ -48,7 +49,7 @@ void Menu::MainMenu(sf::RenderWindow & window, TextureMenager &TexMen)
 					return;
 				}
 
-				else if (tekst[2].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
+				else if (tekst[3].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
 				{
 					choice = 0;
 					return;
@@ -56,6 +57,14 @@ void Menu::MainMenu(sf::RenderWindow & window, TextureMenager &TexMen)
 				else if (tekst[0].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
 				{
 					choice = 1;
+					return;
+				}
+				else if (tekst[2].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
+				{
+					std::cout << "RESET GAME FILES" << std::endl;
+					choice = 4;
+					FilesMenager fm;
+					fm.Save(150, 0);
 					return;
 				}
 				else if (tekst[1].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
